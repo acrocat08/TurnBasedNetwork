@@ -1,0 +1,7 @@
+{
+    "name": "jp.acrocat08.turnbasednetwork",
+    "version": "0.1.0",
+    "displayName": "TurnBasedNetwork",
+    "description": "This is a test package",
+    "unity": "2021.3"
+  }
