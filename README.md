@@ -1,0 +1,2 @@
+# TurnBasedNetwork
+Unity上でターン制の通信ゲームを作るためのパッケージ
