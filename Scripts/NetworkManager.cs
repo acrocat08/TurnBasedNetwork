@@ -18,6 +18,9 @@ namespace TurnBasedNetwork {
 
         [SerializeField] int maxPlayerNum;
 
+        ///Asset化したNetworkMessage派生のScriptableObjectを必ず指定すること
+        [SerializeField] NetworkMessage messageObj;
+
 
         public IEnumerator ConnectNetwork() {
             
@@ -83,7 +86,7 @@ namespace TurnBasedNetwork {
 
         [PunRPC]
         void ReceiveMessage(string code, int senderId) {
-            var message = new NetworkMessage();
+            var message = Instantiate(messageObj);
             message.Decode(code);
             queues[senderId].Enqueue(message);
         }

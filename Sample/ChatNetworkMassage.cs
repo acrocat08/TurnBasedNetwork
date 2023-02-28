@@ -2,17 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChatNetworkMassage : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+[CreateAssetMenu]
+public class ChatNetworkMassage : TurnBasedNetwork.NetworkMessage {
+
+    string text;
+
+    public ChatNetworkMassage(string text) {
+        this.text = text;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public override string Encode() {
+        return text;
     }
+
+    public override void Decode(string code) {
+        Debug.Log(code);
+        text = code;
+    }
+
+    public override System.Object GetValue() {
+        return (System.Object)text;
+    }
+
 }
